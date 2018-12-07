@@ -11,12 +11,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.Font;
 
 /**
  *
  * @author Hazar Gul
  */
-public class FXMLDocumentController implements Initializable {
+public class MainPage implements Initializable {
     
     @FXML
     private Label label;
@@ -24,17 +26,33 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private MenuBar mainMenu;
     
+    @FXML
+    private TextArea text;
     
+    @FXML
+    private TextArea lineNumber;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+       
+    }
+    
+    @FXML
+    private void fontIncrease(ActionEvent event) {
+        lineNumber.setFont(Font.font(text.getFont().getSize() + 1));
+        text.setFont(Font.font(text.getFont().getSize() + 1));
+    }
+    
+    @FXML
+    private void fontDecrease(ActionEvent event) {
+        lineNumber.setFont(Font.font(text.getFont().getSize() - 1));
+        text.setFont(Font.font(text.getFont().getSize() - 1));
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        lineNumber.setEditable(false);
+       
     }    
     
 }

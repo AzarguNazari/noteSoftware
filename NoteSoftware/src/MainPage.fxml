@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="700.0" maxWidth="1200.0" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="1202.0" style="-fx-background-color: #22;">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Open" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#fontIncrease" text="Font Increase" />
+                  <MenuItem mnemonicParsing="false" onAction="#fontDecrease" text="Font Decrease" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane layoutY="26.0" prefHeight="674.0" prefWidth="1200.0">
+         <children>
+            <TextArea fx:id="text" prefHeight="674.0" prefWidth="1200.0" text="Hello everyone this is just a simple work&#10;" wrapText="true" />
+            <TextArea fx:id="lineNumber" prefHeight="674.0" prefWidth="123.0" text="1&#10;2&#10;3&#10;4&#10;1000" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
