@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="700.0" maxWidth="1200.0" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage">
+<AnchorPane id="AnchorPane" maxHeight="700.0" maxWidth="1200.0" minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" stylesheets="@css/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage">
    <children>
       <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="1202.0" style="-fx-background-color: #22;">
         <menus>
@@ -29,6 +29,12 @@
                   <MenuItem mnemonicParsing="false" onAction="#fontDecrease" text="Font Decrease" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Theme">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#darkTheme" text="Dark" />
+                  <MenuItem mnemonicParsing="false" onAction="#lightTheme" text="Light" />
+               </items>
+            </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#aboutMe" text="About" />
@@ -109,7 +115,7 @@
             <ComboBox fx:id="fonts" layoutX="270.0" layoutY="2.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="aboutMe" layoutY="53.0" prefHeight="648.0" prefWidth="1201.0" style="-fx-background-color: #777;" visible="false">
+      <AnchorPane fx:id="aboutMe" layoutY="53.0" prefHeight="648.0" prefWidth="1201.0" style="-fx-background-color: #777;">
          <children>
             <ImageView fitHeight="264.0" fitWidth="264.0" layoutX="453.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -126,6 +132,15 @@
                   <Font size="25.0" />
                </font>
             </Text>
+            <Button layoutX="1124.0" layoutY="16.0" mnemonicParsing="false" onAction="#closeAbout" prefHeight="41.0" prefWidth="51.0">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8-close-window-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>

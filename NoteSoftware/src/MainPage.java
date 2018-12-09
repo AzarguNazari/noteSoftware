@@ -22,7 +22,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,6 +55,10 @@ public class MainPage implements Initializable {
 
     }
 
+    /**
+     * This method is to increase the font size of the editor
+     * @param event 
+     */
     @FXML
     private void fontIncrease(ActionEvent event) {
         text.setFont(Font.font(text.getFont().getSize() + 1));
@@ -64,6 +67,18 @@ public class MainPage implements Initializable {
     @FXML
     private void fontDecrease(ActionEvent event) {
         text.setFont(Font.font(text.getFont().getSize() - 1));
+    }
+    
+    @FXML
+    private void darkTheme(ActionEvent event) {
+        text.getStyleClass().remove("lightTheme");
+        text.getStyleClass().add("darkTheme");
+    }
+    
+    @FXML
+    private void lightTheme(ActionEvent event) {
+        text.getStyleClass().remove("darkTheme");
+        text.getStyleClass().add("lightTheme"); 
     }
 
     @FXML
@@ -83,8 +98,10 @@ public class MainPage implements Initializable {
 
     @FXML
     private void close(ActionEvent event) {
-        lineNumber.setFont(Font.font(text.getFont().getSize() - 1));
-        text.setFont(Font.font(text.getFont().getSize() - 1));
+        if(openedFile != null){
+            openedFile = null;
+            text.clear();
+        }
     }
 
     @FXML
@@ -112,16 +129,24 @@ public class MainPage implements Initializable {
     
     @FXML
     private void aboutMe(ActionEvent event) {
+        aboutMe.setVisible(true);
+    }
+    
+    @FXML
+    private void closeAbout(ActionEvent event) {
         aboutMe.setVisible(false);
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        aboutMe.setVisible(false);
         fonts.getItems().addAll(Font.getFamilies());
         text.setFont(Font.font("Consolas"));
         fonts.setPromptText(text.getFont().getName());
-//         text.setFont(Font.font(""));
+        fonts.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            text.setFont(Font.font(newValue));
+        });
+        
     }
-
+    
 }

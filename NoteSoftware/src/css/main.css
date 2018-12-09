@@ -1,3 +1,20 @@
 .menuBar{
-   
+
+}
+
+.darkTheme .content{
+    -fx-background-color: #222;
+}
+.darkTheme{
+    -fx-text-fill: #eee;
+}
+
+
+.lightTheme .content{
+    -fx-background-color: #eee;
+
+}
+
+.lightTheme{
+    -fx-text-fill: #222;
 }
