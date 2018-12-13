@@ -139,13 +139,27 @@ public class MainPage implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        // Hiding the about me panel
         aboutMe.setVisible(false);
+        
+        // Storing the font list
         fonts.getItems().addAll(Font.getFamilies());
-        text.setFont(Font.font("Consolas"));
+        
+        // Setting the background font & theme
+        text.setFont(new Font(NoteSoftware.configure.getFontFamily(), NoteSoftware.configure.getFontSize()));
         fonts.setPromptText(text.getFont().getName());
+        
+        
+        // Changing the font
         fonts.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             text.setFont(Font.font(newValue));
         });
+        
+        // Setting the theme of editor
+        text.getStyleClass().add(NoteSoftware.configure.getTheme());
+        
+        
         
     }
     
